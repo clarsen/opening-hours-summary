@@ -16,6 +16,23 @@ function dayIntvToStr (days, start, end) {
     return days[start]
   }
 }
+module.exports.earliest = function (hours) {
+  var days = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su']
+  var earliest = 24
+
+  for (var i = 0; i < days.length; i++) {
+    if (`${days[i]}(o)` in hours) {
+      let open = hours[`${days[i]}(o)`]
+      if (open === 0) {
+        open = 24
+      }
+      if (open < earliest) {
+        earliest = open
+      }
+    }
+  }
+  return earliest
+}
 
 module.exports.summarize = function (hours) {
   var days = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su']

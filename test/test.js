@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 
-const { summarize } = require('../index')
+const ohs = require('../index')
 const { expect } = require('chai')
 
 describe('summarize', function () {
   it('M-F,Sa,Su', function () {
-    let i = summarize({
+    let hours = {
       'M(o)': 8,
       'M(c)': 23,
       'Tu(o)': 8,
@@ -20,13 +20,13 @@ describe('summarize', function () {
       'Sa(c)': 0,
       'Su(o)': 10,
       'Su(c)': 23
-    })
-
-    expect(i).to.deep.equal([ 'M-F 08-23', 'Sa 10-00', 'Su 10-23' ])
+    }
+    expect(ohs.summarize(hours)).to.deep.equal([ 'M-F 08-23', 'Sa 10-00', 'Su 10-23' ])
+    expect(ohs.earliest(hours)).to.equal(8)
   })
 
   it('M-Th,Su, F-Sa', function () {
-    let i = summarize({
+    let hours = {
       'M(o)': 11,
       'M(c)': 22,
       'Tu(o)': 11,
@@ -41,8 +41,9 @@ describe('summarize', function () {
       'Sa(c)': 23,
       'Su(o)': 11,
       'Su(c)': 22
-    })
+    }
 
-    expect(i).to.deep.equal([ 'M-Th,Su 11-22', 'F-Sa 11-23' ])
+    expect(ohs.summarize(hours)).to.deep.equal([ 'M-Th,Su 11-22', 'F-Sa 11-23' ])
+    expect(ohs.earliest(hours)).to.equal(11)
   })
 })
