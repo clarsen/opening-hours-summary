@@ -64,7 +64,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": "clarsen/opening-hours-summary",
   "jest": {
