@@ -70,5 +70,8 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sprintf-js": "^1.1.2"
+  }
 }
