@@ -1,30 +1,74 @@
 {
   "name": "opening-hours-summary",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Summarize hours of operation compactly",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "homepage": "https://github.com/clarsen/opening-hours-summary",
+  "author": {
+    "name": "Case Larsen",
+    "email": "clarsen@gmail.com",
+    "url": "https://caselarsen.com"
   },
-  "scripts": {
-    "test": "mocha"
-  },
-  "keywords": [
-    "hours"
+  "files": [
+    "lib"
   ],
-  "author": "Case Larsen",
-  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "hours",
+    "business"
+  ],
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.12.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
     "eslint-config-standard": "^12.0.0",
+    "eslint-config-xo": "^0.25.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^5.2.0"
+    "husky": "^1.2.0",
+    "jest": "^23.5.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.2"
   },
-  "dependencies": {
-    "sprintf-js": "^1.1.2"
-  }
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "jest"
+  },
+  "repository": "clarsen/opening-hours-summary",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "license": "MIT"
 }

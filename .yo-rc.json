@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Case Larsen",
+      "authorEmail": "clarsen@gmail.com",
+      "authorUrl": "https://caselarsen.com"
+    }
+  }
+}
