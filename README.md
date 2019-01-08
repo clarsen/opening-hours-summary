@@ -17,9 +17,18 @@ let summary = openingHoursSummary.summarize({
   'M(c)': 23,
   'Tu(o)': 8,
   'Tu(c)': 23,
-  ...
+  'W(o)': 8,
+  'W(c)': 23,
+  'Th(o)': 8,
+  'Th(c)': 23,
+  'F(o)': 8,
+  'F(c)': 23,
+  'Sa(o)': 9.5,
+  'Sa(c)': 0,
+  'Su(o)': 10,
+  'Su(c)': 23
   });
-// summary = ['M-Tu 08-23']
+// summary = ['M-F 08-23', 'Sa 09:30-00', 'Su 10-23']
 let earliest = openingHoursSummary.summarize({
   'M(o)': 7,
   'M(c)': 23,
